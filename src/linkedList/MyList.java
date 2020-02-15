@@ -1,5 +1,7 @@
 package linkedList;
 
+import org.w3c.dom.Node;
+
 public interface MyList<E>  {
     int size();
 
@@ -7,7 +9,7 @@ public interface MyList<E>  {
 
     boolean contains(E e);
 
-    public  void  addFirst(E e);
+    void  addFirst(E e);
 
     void addLast(E e);
 
