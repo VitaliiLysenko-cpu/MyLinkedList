@@ -29,7 +29,9 @@ public class MyLinkedList<E> implements MyList<E> {
      @Override
      public boolean contains(E e) {
          if(isEmpty()) for (int i = 0; i < curSize; i++) {
-             if (get(i).equals(e)) return true;
+             if (get(i).equals(e)) {
+                 return true;
+             }
          }
          return false;
      }
@@ -37,14 +39,22 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public void addFirst(E e) {
+        //створюю змінну  присвоюю їй значення першої Node.
         Node<E> f = first;
+        // створюю нову newNode із значенням "е" яка має посиляння на попередній елемент
+        // зі значенням null і на наступний, зі значенням поередньо створеної змінної.
         Node<E> newNode = new Node<>(null, e, f);
+        //записуємо в першу Node значення новоствореної newNode.
         first = newNode;
-        if (f == null)
+        //якщо значення f - null (елемент зі значенням != null додається вперше  ) ,
+        // в кінцеву Node (last) записуемо значення новоствореної newNode. Ця перевірка не дозволяє
+        // збільшувати розмір масиву при додованні першого елементу)
+        if (f == null) {
             last = newNode;
-        else
+        } else {
             f.prev = newNode;
-        curSize++;
+            curSize++;
+        }
     }
 
 
@@ -87,33 +97,13 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public boolean offerFirst(E e) {
-        Node<E> f = first;
-        Node<E> newNode = new Node<>(null, e, f);
-        if (f == null) {
-            first = newNode;
-            if (f == null) {
-                last = newNode;
-            } else {
-                f.prev = newNode;
-                curSize++;
-            }
-        }
+    addFirst(e);
         return true;
     }
 
     @Override
     public boolean offerLast(E e) {
-        Node<E> l = last;
-        Node<E> newNode = new Node<>(l, e, null);
-        if (l == null) {
-            last = newNode;
-            if (l == null) {
-                first = newNode;
-            } else {
-                l.next = newNode;
-                curSize++;
-            }
-        }
+      addLast(e);
         return true;
     }
 
