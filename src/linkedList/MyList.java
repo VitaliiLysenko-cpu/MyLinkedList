@@ -7,7 +7,7 @@ public interface MyList<E>  {
 
     boolean isEmpty();
 
-    boolean contains(E e);
+   boolean contains(E e);
 
     void add (int index, E e);
 

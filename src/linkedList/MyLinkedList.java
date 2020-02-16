@@ -1,6 +1,10 @@
 package linkedList;
 
+import java.util.ConcurrentModificationException;
+import java.util.ListIterator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.function.Consumer;
 
 public class MyLinkedList<E> implements MyList<E> {
 
@@ -56,6 +60,7 @@ public class MyLinkedList<E> implements MyList<E> {
         }
     }
 
+
     @Override
     public void addFirst(E e) {
         //створюю змінну  присвоюю їй значення першої Node.
@@ -105,12 +110,20 @@ public class MyLinkedList<E> implements MyList<E> {
         return f.el;
     }
 
+    public void setFirst(Node<E> first) {
+        this.first = first;
+    }
+
     @Override
     public E getLast() {
         Node<E> l = first;
         if (l == null)
             throw new NoSuchElementException();
         return l.el;
+    }
+
+    public void setLast(Node<E> last) {
+        this.last = last;
     }
 
     @Override
@@ -151,8 +164,12 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     @Override
-    public E set(int index, E element) {
-        return null;
+    public E  set(int index, E element) {
+        Node<E> setElement = node(index);
+        E exElement = setElement.el;
+        setElement.el = element;
+        return exElement;
+
     }
 
     @Override
@@ -162,7 +179,6 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public void toArray() {
-
     }
 
     Node<E> node(int index) {
@@ -176,6 +192,9 @@ public class MyLinkedList<E> implements MyList<E> {
         E el;
         MyLinkedList.Node<E> next;
         MyLinkedList.Node<E> prev;
+
+        public Node() {
+        }
 
         Node(MyLinkedList.Node<E> prev, E element, MyLinkedList.Node<E> next) {
             this.el = element;
