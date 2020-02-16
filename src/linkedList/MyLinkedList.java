@@ -19,23 +19,42 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public boolean isEmpty() {
-        if (first!= null&&last!=null){
+        if (first != null && last != null) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-     @Override
-     public boolean contains(E e) {
-         if(isEmpty()) for (int i = 0; i < curSize; i++) {
-             if (get(i).equals(e)) {
-                 return true;
-             }
-         }
-         return false;
-     }
+    @Override
+    public boolean contains(E e) {
+        if (isEmpty()) for (int i = 0; i < curSize; i++) {
+            if (get(i).equals(e)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    @Override
+    public void add(int index, E e) {
+        if (index <= 0 && index >= curSize) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (index == curSize) {
+            addLast(e);
+        } else {
+            Node<E> desiredCell = node(index);
+            Node<E> previousСell = desiredCell.prev;
+            Node<E> newNode = new Node<>(previousСell, e, desiredCell);
+            desiredCell.prev = newNode;
+            if (previousСell == null)
+                first = newNode;
+            else
+                previousСell.next = newNode;
+            curSize++;
+        }
+    }
 
     @Override
     public void addFirst(E e) {
@@ -46,7 +65,7 @@ public class MyLinkedList<E> implements MyList<E> {
         Node<E> newNode = new Node<>(null, e, f);
         //записуємо в першу Node значення новоствореної newNode.
         first = newNode;
-        //якщо значення f - null (елемент зі значенням != null додається вперше  ) ,
+        //якщо значення f = null (елемент зі значенням != null додається вперше  ) ,
         // в кінцеву Node (last) записуемо значення новоствореної newNode. Ця перевірка не дозволяє
         // збільшувати розмір масиву при додованні першого елементу)
         if (f == null) {
@@ -56,7 +75,6 @@ public class MyLinkedList<E> implements MyList<E> {
             curSize++;
         }
     }
-
 
     @Override
     public void addLast(E e) {
@@ -97,13 +115,13 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public boolean offerFirst(E e) {
-    addFirst(e);
+        addFirst(e);
         return true;
     }
 
     @Override
     public boolean offerLast(E e) {
-      addLast(e);
+        addLast(e);
         return true;
     }
 
@@ -145,6 +163,13 @@ public class MyLinkedList<E> implements MyList<E> {
     @Override
     public void toArray() {
 
+    }
+
+    Node<E> node(int index) {
+        Node<E> x = first;
+        for (int i = 0; i < index; i++)
+            x = x.next;
+        return x;
     }
 
     private static class Node<E> {

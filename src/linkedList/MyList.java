@@ -9,6 +9,8 @@ public interface MyList<E>  {
 
     boolean contains(E e);
 
+    void add (int index, E e);
+
     void  addFirst(E e);
 
     void addLast(E e);
