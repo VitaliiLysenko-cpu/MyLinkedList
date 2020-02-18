@@ -1,16 +1,14 @@
 package linkedList;
 
-import java.util.ConcurrentModificationException;
-import java.util.ListIterator;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.function.Consumer;
 
 public class MyLinkedList<E> implements MyList<E> {
 
     private int curSize = 0;
     private Node<E> first;
     private Node<E> last;
+
 
     public MyLinkedList() {
 
@@ -23,11 +21,8 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public boolean isEmpty() {
-        if (first != null && last != null) {
-            return true;
-        } else {
-            return false;
-        }
+        if (first != null && last != null) return true;
+        else return false;
     }
 
     @Override
@@ -140,45 +135,113 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public E remove() {
-        return null;
+        return removeFirst();
     }
 
     @Override
     public E remove(int index) {
-        return null;
+        Node<E> n = first;
+        E element = n.el;
+        Node<E> prev = n.prev;
+        Node<E> next = n.next;
+        if (prev == null) { // (prev == null   , first , next )
+            first = next;   // (null , first , next) -> (null , next , next)
+        } else {
+            prev.next = next;//
+            n.prev = null;
+        }
+        if (next == null) {
+            last = prev;
+        } else {
+            next.prev = prev;
+            n.next = null;
+        }
+        n.el = null;
+        curSize--;
+        return element;
     }
 
     @Override
     public boolean remove(Object o) {
-        return false;
+        if (o == null) {
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (x.el == null) {
+                    remove(x);
+                    return true;
+                }
+            }
+        } else {
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (o.equals(x.el)) {
+                    remove(x);
+                    return true;
+                }
+            }
+        }
+      return false;
     }
 
     @Override
     public E removeFirst() {
-        return null;
+        Node<E> f = first;
+        E element = f.el;
+        Node<E> next = f.next;
+        f.el = null;
+        f.next = null; // help GC
+        first = next;
+        if (next == null)
+            last = null;
+        else
+            next.prev = null;
+        curSize--;
+
+        return element;
     }
 
     @Override
     public E removeLast() {
-        return null;
+        Node<E> l = last;
+        E element = l.el;
+        Node<E> prev = l.prev;
+        last.el = null;
+        l.prev = null; // help GC
+        last = prev;
+        if (prev == null)
+            first = null;
+        else
+            prev.next = null;
+        curSize--;
+        return element;
     }
 
     @Override
-    public E  set(int index, E element) {
-        Node<E> setElement = node(index);
-        E exElement = setElement.el;
-        setElement.el = element;
+    public E set(int index, E element) {
+        Node<E> setElement = node(index); //setElement = new Node<>(prev, setElement, next)
+        E exElement = setElement.el;//exElement "value" -> setElement "null"
+        setElement.el = element; // setElement"null" -> setElement "element"
         return exElement;
-
     }
 
     @Override
     public void clear() {
-
+        for (Node<E> x = first; x != null;  ) {
+            Node<E> next = x.next;
+            x.el = null;
+            x.next = null;
+            x.prev = null;
+            x = next;
+        }
+        first = last = null;
+        curSize = 0;
     }
 
     @Override
-    public void toArray() {
+    public Object[] toArray() {
+        Object[] res = new Object[curSize];
+        int i = 0;
+        for (Node<E> x = first; x != null; x = x.next)
+            res[i++] = x.el;
+        return res;
     }
 
     Node<E> node(int index) {

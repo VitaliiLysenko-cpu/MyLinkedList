@@ -1,17 +1,15 @@
 package linkedList;
 
-import org.w3c.dom.Node;
-
-public interface MyList<E>  {
+public interface MyList<E> {
     int size();
 
     boolean isEmpty();
 
-   boolean contains(E e);
+    boolean contains(E e);
 
-    void add (int index, E e);
+    void add(int index, E e);
 
-    void  addFirst(E e);
+    void addFirst(E e);
 
     void addLast(E e);
 
@@ -39,5 +37,5 @@ public interface MyList<E>  {
 
     void clear();
 
-    void toArray();
+    Object[] toArray();
 }
