@@ -23,8 +23,6 @@ public interface MyList<E> {
 
     boolean offerLast(E e);
 
-    E remove();
-
     E remove(int index);
 
     boolean remove(Object o);

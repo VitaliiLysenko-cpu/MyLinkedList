@@ -4,6 +4,7 @@
     <list default="true" id="08093ff4-54e2-44e3-8c94-42759df20cf9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linkedList/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linkedList/MyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linkedList/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linkedList/MyList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582005894214</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=" added class Iterator">
+      <created>1582092917096</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582092917096</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,7 +179,8 @@
     <MESSAGE value="description of the work of method add( int index.E e)" />
     <MESSAGE value="description of the work of method set( int index.E e)" />
     <MESSAGE value="methods added remove ....." />
-    <option name="LAST_COMMIT_MESSAGE" value="methods added remove ....." />
+    <MESSAGE value=" added class Iterator" />
+    <option name="LAST_COMMIT_MESSAGE" value=" added class Iterator" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="28" key="#Project_Structure" timestamp="1581613889326">
@@ -194,46 +203,46 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="364" y="0" key="#org.jetbrains.kotlin.idea.refactoring.safeDelete.KotlinOverridingDialog/0.0.1366.738@0.0.1366.738" timestamp="1581789296276" />
-    <state x="635" y="4" width="691" height="713" key="CommitChangelistDialog2" timestamp="1582005892723">
+    <state x="290" y="25" width="691" height="713" key="CommitChangelistDialog2" timestamp="1582092916010">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="635" y="4" width="691" height="713" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1582005892723" />
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1582092629532">
+    <state x="290" y="25" width="691" height="713" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1582092916010" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1582122212248">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1582092629532" />
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom" timestamp="1582005611813">
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1582122212248" />
+    <state width="1323" height="131" key="GridCell.Tab.0.bottom" timestamp="1582145199377">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1582005611813" />
-    <state width="1323" height="150" key="GridCell.Tab.0.center" timestamp="1582005611813">
+    <state width="1323" height="131" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1582145199377" />
+    <state width="1323" height="131" key="GridCell.Tab.0.center" timestamp="1582145199377">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1582005611813" />
-    <state width="1323" height="150" key="GridCell.Tab.0.left" timestamp="1582005611813">
+    <state width="1323" height="131" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1582145199377" />
+    <state width="1323" height="131" key="GridCell.Tab.0.left" timestamp="1582145199377">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1582005611813" />
-    <state width="1323" height="150" key="GridCell.Tab.0.right" timestamp="1582005611813">
+    <state width="1323" height="131" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1582145199377" />
+    <state width="1323" height="131" key="GridCell.Tab.0.right" timestamp="1582145199377">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1582005611813" />
-    <state width="1323" height="150" key="GridCell.Tab.1.bottom" timestamp="1582005611813">
+    <state width="1323" height="131" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1582145199377" />
+    <state width="1323" height="131" key="GridCell.Tab.1.bottom" timestamp="1582145199377">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1582005611813" />
-    <state width="1323" height="150" key="GridCell.Tab.1.center" timestamp="1582005611813">
+    <state width="1323" height="131" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1582145199377" />
+    <state width="1323" height="131" key="GridCell.Tab.1.center" timestamp="1582145199377">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1582005611813" />
-    <state width="1323" height="150" key="GridCell.Tab.1.left" timestamp="1582005611813">
+    <state width="1323" height="131" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1582145199377" />
+    <state width="1323" height="131" key="GridCell.Tab.1.left" timestamp="1582145199377">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1582005611813" />
-    <state width="1323" height="150" key="GridCell.Tab.1.right" timestamp="1582005611813">
+    <state width="1323" height="131" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1582145199377" />
+    <state width="1323" height="131" key="GridCell.Tab.1.right" timestamp="1582145199377">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="150" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1582005611813" />
+    <state width="1323" height="131" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1582145199377" />
     <state x="184" y="12" key="SettingsEditor" timestamp="1581774524388">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -242,21 +251,21 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1582089877829" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1582005899550">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1582092919783">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1582005899550" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1581831130895">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1582092919783" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1582136743827">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1581831130895" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1582136743827" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

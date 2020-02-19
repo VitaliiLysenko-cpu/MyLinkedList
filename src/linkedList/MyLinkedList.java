@@ -1,6 +1,5 @@
 package linkedList;
 
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> implements MyList<E> {
@@ -21,15 +20,19 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public boolean isEmpty() {
-        if (first != null && last != null) return true;
+        if (first != null || last != null) return true;
         else return false;
     }
 
     @Override
     public boolean contains(E e) {
-        if (isEmpty()) for (int i = 0; i < curSize; i++) {
-            if (get(i).equals(e)) {
-                return true;
+        if (!isEmpty()) {
+            return false;
+        }else {
+            for (Node<E> i = first; i != null; i = i.next) {
+                if (e.equals(i.el)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -105,9 +108,9 @@ public class MyLinkedList<E> implements MyList<E> {
         return f.el;
     }
 
-    public void setFirst(Node<E> first) {
-        this.first = first;
-    }
+ // public void setFirst(E element) {
+ //     this.first = first;
+ // }
 
     @Override
     public E getLast() {
@@ -117,9 +120,10 @@ public class MyLinkedList<E> implements MyList<E> {
         return l.el;
     }
 
-    public void setLast(Node<E> last) {
-        this.last = last;
-    }
+ // public void setLast(E element) {
+ //     
+ //     this.last = last;
+ // }
 
     @Override
     public boolean offerFirst(E e) {
@@ -133,14 +137,10 @@ public class MyLinkedList<E> implements MyList<E> {
         return true;
     }
 
-    @Override
-    public E remove() {
-        return removeFirst();
-    }
 
     @Override
     public E remove(int index) {
-        Node<E> n = first;
+        Node<E> n = node(index);
         E element = n.el;
         Node<E> prev = n.prev;
         Node<E> next = n.next;
@@ -186,8 +186,6 @@ public class MyLinkedList<E> implements MyList<E> {
         Node<E> f = first;
         E element = f.el;
         Node<E> next = f.next;
-        f.el = null;
-        f.next = null; // help GC
         first = next;
         if (next == null)
             last = null;
@@ -203,8 +201,6 @@ public class MyLinkedList<E> implements MyList<E> {
         Node<E> l = last;
         E element = l.el;
         Node<E> prev = l.prev;
-        last.el = null;
-        l.prev = null; // help GC
         last = prev;
         if (prev == null)
             first = null;
@@ -235,10 +231,6 @@ public class MyLinkedList<E> implements MyList<E> {
         curSize = 0;
     }
 
-    public MyLinkedList(int curSize) {
-        this.curSize = curSize;
-    }
-
     public int getCurSize() {
         return curSize;
     }
@@ -247,8 +239,11 @@ public class MyLinkedList<E> implements MyList<E> {
     public Object[] toArray() {
         Object[] res = new Object[curSize];
         int i = 0;
-        for (Node<E> x = first; x != null; x = x.next)
+        Node<E> x = first;
+        while (x != null) {
             res[i++] = x.el;
+            x = x.next;
+        }
         return res;
     }
 
@@ -271,6 +266,10 @@ public class MyLinkedList<E> implements MyList<E> {
             this.el = element;
             this.next = next;
             this.prev = prev;
+
+        }
+
+        public Node(int index) {
 
         }
 
@@ -297,5 +296,8 @@ public class MyLinkedList<E> implements MyList<E> {
         public void setPrev(Node<E> prev) {
             this.prev = prev;
         }
+    }
+    public IteratorLinkedList<E> iteratorLinkedList(){
+        return new IteratorLinkedList<E>();
     }
 }
