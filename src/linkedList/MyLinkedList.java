@@ -235,6 +235,14 @@ public class MyLinkedList<E> implements MyList<E> {
         curSize = 0;
     }
 
+    public MyLinkedList(int curSize) {
+        this.curSize = curSize;
+    }
+
+    public int getCurSize() {
+        return curSize;
+    }
+
     @Override
     public Object[] toArray() {
         Object[] res = new Object[curSize];
@@ -251,7 +259,7 @@ public class MyLinkedList<E> implements MyList<E> {
         return x;
     }
 
-    private static class Node<E> {
+    static class Node<E> {
         E el;
         MyLinkedList.Node<E> next;
         MyLinkedList.Node<E> prev;
