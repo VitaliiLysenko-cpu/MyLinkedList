@@ -28,7 +28,7 @@ public class MyLinkedList<E> implements MyList<E> {
     public boolean contains(E e) {
         if (!isEmpty()) {
             return false;
-        }else {
+        } else {
             for (Node<E> i = first; i != null; i = i.next) {
                 if (e.equals(i.el)) {
                     return true;
@@ -108,9 +108,9 @@ public class MyLinkedList<E> implements MyList<E> {
         return f.el;
     }
 
- // public void setFirst(E element) {
- //     this.first = first;
- // }
+    // public void setFirst(E element) {
+    //     this.first = first;
+    // }
 
     @Override
     public E getLast() {
@@ -120,10 +120,10 @@ public class MyLinkedList<E> implements MyList<E> {
         return l.el;
     }
 
- // public void setLast(E element) {
- //     
- //     this.last = last;
- // }
+    // public void setLast(E element) {
+    //
+    //     this.last = last;
+    // }
 
     @Override
     public boolean offerFirst(E e) {
@@ -137,10 +137,12 @@ public class MyLinkedList<E> implements MyList<E> {
         return true;
     }
 
-
     @Override
     public E remove(int index) {
-        Node<E> n = node(index);
+        return newTieUp(node(index));
+    }
+
+    public E newTieUp(Node<E> n) {
         E element = n.el;
         Node<E> prev = n.prev;
         Node<E> next = n.next;
@@ -166,19 +168,19 @@ public class MyLinkedList<E> implements MyList<E> {
         if (o == null) {
             for (Node<E> x = first; x != null; x = x.next) {
                 if (x.el == null) {
-                    remove(x);
+                    newTieUp(x);
                     return true;
                 }
             }
         } else {
             for (Node<E> x = first; x != null; x = x.next) {
                 if (o.equals(x.el)) {
-                    remove(x);
+                    newTieUp(x);
                     return true;
                 }
             }
         }
-      return false;
+        return false;
     }
 
     @Override
@@ -220,7 +222,7 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public void clear() {
-        for (Node<E> x = first; x != null;  ) {
+        for (Node<E> x = first; x != null; ) {
             Node<E> next = x.next;
             x.el = null;
             x.next = null;
@@ -254,10 +256,14 @@ public class MyLinkedList<E> implements MyList<E> {
         return x;
     }
 
+    public IteratorLinkedList<E> iteratorLinkedList() {
+        return new IteratorLinkedList<E>(curSize);
+    }
+
     static class Node<E> {
         E el;
-        MyLinkedList.Node<E> next;
-        MyLinkedList.Node<E> prev;
+        Node<E> next;
+        Node<E> prev;
 
         public Node() {
         }
@@ -296,8 +302,6 @@ public class MyLinkedList<E> implements MyList<E> {
         public void setPrev(Node<E> prev) {
             this.prev = prev;
         }
-    }
-    public IteratorLinkedList<E> iteratorLinkedList(){
-        return new IteratorLinkedList<E>();
+
     }
 }

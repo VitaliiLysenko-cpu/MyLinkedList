@@ -1,16 +1,17 @@
 package linkedList;
 
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
 import java.util.NoSuchElementException;
-import java.util.function.Consumer;
 
 public class IteratorLinkedList<E> implements Iterator {
     private MyLinkedList.Node<E> lastReturned;
     private MyLinkedList.Node<E> next;
     private int nextIndex;
-    MyLinkedList<E> myLinkedList = new MyLinkedList<>();
+    private int curSize;
+
+    public IteratorLinkedList(int curSize) {
+        this.curSize = curSize;
+    }
 
     /**
      * Returns {@code true} if the iteration has more elements.
@@ -21,7 +22,7 @@ public class IteratorLinkedList<E> implements Iterator {
      */
     @Override
     public boolean hasNext() {
-        return nextIndex < myLinkedList.getCurSize();
+        return nextIndex < curSize;
     }
 
     /**
